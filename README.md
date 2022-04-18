@@ -1,4 +1,4 @@
-**#To-Do App**
+#To-Do App
 **Important information:** 
 The *.css file, which is the design of the app, was taken from other sources. 
 However, all the content that ensures the operation of the application belongs to me.
