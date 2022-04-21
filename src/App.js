@@ -14,7 +14,7 @@ function App() {
   }, []); //sayfa ilk açıldığında todosları gelir.
   useEffect(() => {
     statusHandler(); //todos ve status statelerinde değişiklik olunca statusHandler fonksiyonunu çalıştırır.
-    saveTodos(); //yapılan her işlemden sonra localstorage'a günceller.
+    saveTodos(); //yapılan her işlemden sonra browserda bulunan localstorage'a günceller.
   }, [todos, status]);
   const statusHandler = () => {
     switch (status) {
