@@ -42,7 +42,7 @@ function App() {
   };
   return (
     <section className="todoapp">
-      {/* Componentlerden de erişebilmek iiçin stateleri prop olarak gonderdik */}
+      {/* Componentlerden de erişebilmek için stateleri prop olarak gonderdik */}
       <Header todos={todos} setTodos={setTodos} />
 
       {/* todosun length 0dan büyükse main ve footer göster */}
