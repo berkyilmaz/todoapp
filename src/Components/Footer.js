@@ -49,7 +49,7 @@ function Footer({ todos, setTodos, filteredTodos, status, setStatus }) {
       {anyTodoCompleted ? (
         <button className="clear-completed" onClick={clearCompleted}>
           Clear completed
-        </button> //eğer anyTodoCompleted varsa ya da true ise clear butonunu göster
+        </button> //eğer anyTodoCompleted varsa ya da true ise clear butonunu gösterir.
       ) : null}
     </footer>
   );

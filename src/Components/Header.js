@@ -1,19 +1,18 @@
 import { useState } from "react";
 
-//todos ve setTodos proplarını karşıladık
 function Header({ todos, setTodos }) {
+  //todos ve setTodos proplarını karşılaştırır.
   //input için state oluşturduk
   const [input, setInput] = useState("");
   //inputun value değiştikçe onu state'e yaz
   const onChangeInput = (e) => {
     setInput(e.target.value);
-    // console.log(input);
   };
-  //form submit edildiğinde default fonksiyonu (formu gönderip sayfa yenilemeyi) durdur
+  //veri submit edildiğinde default fonksiyonu (formu gönderip sayfa yenilemeyi) durdur
   const onSubmit = (e) => {
     e.preventDefault();
-    // input boşsa uyarı ver ve işlemi gerçekleştirme
     if (input === "") {
+      // input boşsa uyarı ver ve işlemi gerçekleştirme
       alert("Eksik bilgi girdiniz!");
       return false;
     }
@@ -22,7 +21,6 @@ function Header({ todos, setTodos }) {
       ...todos, //todos içindekiler aynı şekilde kalsın virgülden sonraki yazdıklarımı güncelle
       { text: input, completed: false, id: Math.random() * 1000 }, //unique id oluşturmak için kullandık
     ]);
-    // console.log(todos);
     setInput(""); //input gonderildikten sonra input alanını boşalt
   };
 

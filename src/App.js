@@ -5,30 +5,29 @@ import Footer from "./Components/Footer";
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState([]); //todosa heryerden erişebilmek için parentta oluşturduk
-  const [status, setStatus] = useState("all"); //footerdaki butonların çalışması için oluşturduk
-  const [filteredTodos, setFilteredTodos] = useState([]); //footerdaki status durumlarına göre filterelenmiş todos(todosda yapsak filterelenince digerleri kaybolacaktı)
+  const [todos, setTodos] = useState([]); //todosa heryerden erişebilmek için parentta oluşturuldu.
+  const [status, setStatus] = useState("all"); //footerdaki butonların çalışması için oluşturuldu.
+  const [filteredTodos, setFilteredTodos] = useState([]); //footerdaki status durumlarına göre filterelenmiş todos(todosda yapılsaydı filterelendiği zaman digerleri kaybolacaktı)
 
   useEffect(() => {
     getTodos();
-  }, []); //sayfa ilk açıldığında todosları yükler
+  }, []); //sayfa ilk açıldığında todosları gelir.
   useEffect(() => {
-    // console.log("efekt")
-    statusHandler(); //todos ve status statelerinde değişiklik olunca statusHandler fonksiyonunu çalıştır
-    saveTodos(); //yapılan her işlemden sonra localstorage'a güncelle
+    statusHandler(); //todos ve status statelerinde değişiklik olunca statusHandler fonksiyonunu çalıştırır.
+    saveTodos(); //yapılan her işlemden sonra localstorage'a günceller.
   }, [todos, status]);
   const statusHandler = () => {
     switch (status) {
       case "completed":
-        setFilteredTodos(todos.filter((todo) => todo.completed === true)); //completed(tamamlanmış) todoları göster
+        setFilteredTodos(todos.filter((todo) => todo.completed === true)); //tamamlanmış todoları gösterir.
         break;
       case "active":
-        setFilteredTodos(todos.filter((todo) => todo.completed === false)); //tamamlanmamışları göster
+        setFilteredTodos(todos.filter((todo) => todo.completed === false)); //tamamlanmamışları gösterir.
         break;
-      default: //tüm todoları göster
+      default: //tüm todoları gösterir.
         setFilteredTodos(todos);
         break;
-    } //status durumlarına göre todosu filtreleyerek yeni filtrelenmiş todosu oluştur
+    } //status durumlarına göre todosu filtreleyerek yeni filtrelenmiş todosu oluşturur.
   };
   const saveTodos = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
